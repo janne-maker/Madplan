@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Min Opskriftsbog</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --warm: #f0ebe1;
+    --brown: #3d2b1f;
+    --brown-mid: #7a5c4a;
+    --brown-light: #c4a882;
+    --green: #4a6741;
+    --green-light: #e8f0e7;
+    --accent: #c9543a;
+    --text: #2a1f17;
+    --text-soft: #7a6a5a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--brown);
+    padding: 20px 20px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--cream);
+    letter-spacing: 0.5px;
+  }
+
+  header p {
+    font-size: 12px;
+    color: var(--brown-light);
+    margin-top: 2px;
+  }
+
+  /* SEARCH */
+  .search-bar {
+    padding: 12px 16px;
+    background: var(--warm);
+    border-bottom: 1px solid #e0d8cc;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 24px;
+    border: 1.5px solid #d8cfc4;
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+  }
+
+  .search-bar input:focus {
+    border-color: var(--brown-mid);
+  }
+
+  /* CATEGORY TABS */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: var(--warm);
+    border-bottom: 1px solid #e0d8cc;
+  }
+
+  .tabs::-webkit-scrollbar { display: none; }
+
+  .tab {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1.5px solid #d8cfc4;
+    background: white;
+    color: var(--text-soft);
+    transition: all 0.2s;
+  }
+
+  .tab.active {
+    background: var(--brown);
+    color: var(--cream);
+    border-color: var(--brown);
+  }
+
+  /* RECIPE LIST */
+  .recipe-list {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .recipe-card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    border: 1.5px solid #ede7dc;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .recipe-card:hover, .recipe-card:active {
+    border-color: var(--brown-mid);
+    box-shadow: 0 4px 16px rgba(61,43,31,0.1);
+  }
+
+  .recipe-emoji {
+    font-size: 32px;
+    width: 52px;
+    height: 52px;
+    background: var(--green-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .recipe-info { flex: 1; }
+
+  .recipe-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--brown);
+    line-height: 1.3;
+  }
+
+  .recipe-meta {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-top: 4px;
+  }
+
+  .recipe-tag {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 6px;
+  }
+
+  .recipe-arrow {
+    color: var(--brown-light);
+    font-size: 18px;
+  }
+
+  /* EMPTY STATE */
+  .empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-soft);
+  }
+
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-state h3 { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--brown); margin-bottom: 8px; }
+  .empty-state p { font-size: 14px; line-height: 1.6; }
+
+  /* ADD BUTTON */
+  .fab {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201,84,58,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    z-index: 50;
+  }
+
+  .fab:hover { transform: scale(1.08); }
+
+  /* MODAL - RECIPE DETAIL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(42,31,23,0.5);
+    z-index: 200;
+    display: none;
+    align-items: flex-end;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--cream);
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .modal-handle {
+    width: 40px;
+    height: 4px;
+    background: #d8cfc4;
+    border-radius: 2px;
+    margin: 12px auto 0;
+  }
+
+  .modal-header {
+    padding: 16px 20px 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .modal-emoji {
+    font-size: 40px;
+    width: 64px;
+    height: 64px;
+    background: var(--green-light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .modal-title {
+    flex: 1;
+  }
+
+  .modal-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--brown);
+    line-height: 1.3;
+  }
+
+  .modal-title p {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 4px;
+  }
+
+  .modal-close {
+    background: var(--warm);
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--text-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-body { padding: 0 20px 32px; }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    margin: 20px 0 10px;
+  }
+
+  /* INGREDIENTS */
+  .ingredients-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ingredient-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ede7dc;
+    font-size: 14px;
+  }
+
+  .ingredient-name { color: var(--text); }
+  .ingredient-amount { color: var(--text-soft); font-size: 13px; }
+
+  /* STEPS */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+    background: var(--brown);
+    color: var(--cream);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  /* ADD RECIPE MODAL */
+  .add-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(42,31,23,0.5);
+    z-index: 300;
+    display: none;
+    align-items: flex-end;
+  }
+
+  .add-modal-overlay.open { display: flex; }
+
+  .add-modal {
+    background: var(--cream);
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+    padding: 12px 20px 40px;
+  }
+
+  .add-modal h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--brown);
+    margin: 12px 0 16px;
+  }
+
+  .form-group { margin-bottom: 14px; }
+
+  .form-group label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-soft);
+    display: block;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #d8cfc4;
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.6;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--brown-mid);
+  }
+
+  .btn-save {
+    width: 100%;
+    padding: 14px;
+    background: var(--brown);
+    color: var(--cream);
+    border: none;
+    border-radius: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+
+  .btn-cancel {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: var(--text-soft);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+
+  .hint {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* DELETE BTN */
+  .btn-delete {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📖 Min Opskriftsbog</h1>
+  <p id="recipe-count">Ingen opskrifter endnu</p>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="search-input" placeholder="🔍 Søg efter opskrift..." oninput="filterRecipes()">
+</div>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" onclick="filterByTag('alle', this)">Alle</div>
+  <div class="tab" onclick="filterByTag('aftensmad', this)">Aftensmad</div>
+  <div class="tab" onclick="filterByTag('frokost', this)">Frokost</div>
+  <div class="tab" onclick="filterByTag('vegetar', this)">Vegetar</div>
+  <div class="tab" onclick="filterByTag('pasta', this)">Pasta</div>
+  <div class="tab" onclick="filterByTag('suppe', this)">Suppe</div>
+</div>
+
+<div class="recipe-list" id="recipe-list"></div>
+
+<button class="fab" onclick="openAddModal()">+</button>
+
+<!-- RECIPE DETAIL MODAL -->
+<div class="modal-overlay" id="detail-modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <div class="modal-emoji" id="detail-emoji"></div>
+      <div class="modal-title">
+        <h2 id="detail-name"></h2>
+        <p id="detail-meta"></p>
+      </div>
+      <button class="modal-close" onclick="closeDetailModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="section-title">Ingredienser</div>
+      <div class="ingredients-grid" id="detail-ingredients"></div>
+      <div class="section-title">Fremgangsmåde</div>
+      <div class="steps-list" id="detail-steps"></div>
+      <button class="btn-delete" id="detail-delete" onclick="deleteCurrentRecipe()">🗑 Slet opskrift</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADD RECIPE MODAL -->
+<div class="add-modal-overlay" id="add-modal">
+  <div class="add-modal">
+    <div class="modal-handle"></div>
+    <h3>Ny opskrift</h3>
+
+    <div class="form-group">
+      <label>OPSKRIFTENS NAVN</label>
+      <input type="text" id="input-name" placeholder="fx Linsefyld med tortillas">
+    </div>
+
+    <div class="form-group">
+      <label>EMOJI IKON</label>
+      <input type="text" id="input-emoji" placeholder="fx 🌮 🍝 🥗" maxlength="2">
+    </div>
+
+    <div class="form-group">
+      <label>KATEGORI</label>
+      <select id="input-tag">
+        <option value="aftensmad">Aftensmad</option>
+        <option value="frokost">Frokost</option>
+        <option value="vegetar">Vegetar</option>
+        <option value="pasta">Pasta</option>
+        <option value="suppe">Suppe</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>PORTIONER & TID (valgfrit)</label>
+      <input type="text" id="input-meta" placeholder="fx 2 pers. · 30 min">
+    </div>
+
+    <div class="form-group">
+      <label>INGREDIENSER</label>
+      <textarea id="input-ingredients" placeholder="Skriv én ingrediens per linje, fx:&#10;100 g røde linser&#10;1 løg&#10;2 fed hvidløg"></textarea>
+      <p class="hint">Skriv én ingrediens per linje</p>
+    </div>
+
+    <div class="form-group">
+      <label>FREMGANGSMÅDE</label>
+      <textarea id="input-steps" placeholder="Skriv ét trin per linje, fx:&#10;Hak løg og hvidløg fint.&#10;Svits i olie i 3 min.&#10;Tilsæt linser og krydderier." style="min-height:140px"></textarea>
+      <p class="hint">Skriv ét trin per linje</p>
+    </div>
+
+    <button class="btn-save" onclick="saveRecipe()">Gem opskrift</button>
+    <button class="btn-cancel" onclick="closeAddModal()">Annuller</button>
+  </div>
+</div>
+
+<script>
+  let recipes = [];
+  let currentTag = 'alle';
+  let currentRecipeIndex = null;
+
+  const preloadedRecipes = [
+    {
+      name: "Fyldt pasta i grøntsagssauce",
+      emoji: "🍝",
+      tag: "pasta",
+      meta: "2 pers. · 30 min",
+      ingredients: [
+        "Fyldt pasta (ravioli/tortellini) – 400 g",
+        "Peberfrugt – 1 stk",
+        "Løg – 1 stk",
+        "Squash – 1 stk",
+        "Gulerødder – 3 stk",
+        "Hvidløg – 2 fed",
+        "Flåede tomater – 1 ds",
+        "Vand – 1 dl",
+        "Bouillonterning – 1 stk",
+        "Paprika – 2 tsk",
+        "Timian – 1 tsk",
+        "Oregano – 1 tsk",
+        "Sukker – 1 tsk",
+        "Balsamico – evt. et skvæt",
+        "Olie til stegning – 1 spsk"
+      ],
+      steps: [
+        "Vask og hak grøntsagerne groft.",
+        "Opvarm lidt olie i en gryde og svits først løg. Når løgene er klare tilsættes resten af grøntsagerne og svitses et par minutter.",
+        "Tilsæt flåede tomater, vand, bouillonterning og krydderier, og lad saucen simre 10 minutter. Blend saucen jævn med en stavblender og smag til med salt og peber, og evt. mere krydderi.",
+        "Den fyldte pasta koges som anvist på posen og vendes sammen med grøntsagssaucen."
+      ]
+    },
+    {
+      name: "Enchiladas med vegetarisk linsefyld",
+      emoji: "🌮",
+      tag: "vegetar",
+      meta: "2 pers. · 45 min",
+      ingredients: [
+        "Fuldkornstortillas – 6 stk",
+        "Revet cheddar – 50 g",
+        "Løg – 0,5 stk",
+        "Hvidløg – 1 fed",
+        "Peberfrugt – 0,5 stk",
+        "Røde linser, tørrede – 100 g",
+        "Tomatpure – 35 g",
+        "Spidskommen – 0,5 tsk",
+        "Paprika – 0,5 tsk",
+        "Oregano – 0,5 tsk",
+        "Chili eller cayennepeber – efter smag",
+        "Vand – 3 dl",
+        "Bouillonterning – 0,5 stk",
+        "Flåede tomater – 0,5 ds",
+        "Løg (sauce) – 0,5 stk",
+        "Hvidløg (sauce) – 1 fed",
+        "Tomatpure (sauce) – 35 g",
+        "Paprika (sauce) – 0,5 spsk",
+        "Basilikum – 0,5 tsk",
+        "Sukker – 0,5 tsk",
+        "Majs, avocado, forårsløg, jalapeños, creme fraiche – til servering"
+      ],
+      steps: [
+        "Tænd ovnen på 200 grader.",
+        "[Linsefyld] Hak løg, hvidløg og peberfrugt fint.",
+        "Opvarm olien på en pande, og svits løg, hvidløg og peberfrugt ved middelvarme i ca. 5 minutter.",
+        "Tilsæt linser, krydderier, vand og bouillonterning, og lad det simre i 20-25 minutter til vandet er kogt ind og linserne er møre – rør lidt undervejs, så det ikke brænder på.",
+        "Smag til med salt og peber.",
+        "[Tomatsauce] Hak løg og hvidløg, og svits det i 1 spsk olie i en gryde.",
+        "Tilsæt tomater, tomatpure og krydderier, og lad det hele simre til løgene er møre.",
+        "Blend saucen jævn med en stavblender, og smag til med salt og peber.",
+        "[Enchiladas] Fordel fyldet på midten i de 6 fuldkornstortillas.",
+        "Fold siderne ind og rul tortillaerne stramt sammen.",
+        "Placer alle enchiladasene i et ildfast fad.",
+        "Hæld tomatsaucen henover og drys til sidst med revet cheddar.",
+        "Bag dem i ovnen i 12-15 minutter til osten er gylden.",
+        "Kan evt. serveres med et drys majs, avocado, forårsløg, jalapeños, osv."
+      ]
+    },
+    {
+      name: "Ristet brød med æg, tomat og rejer",
+      emoji: "🍞",
+      tag: "frokost",
+      meta: "2 pers. · 15 min",
+      ingredients: [
+        "Æg – 2 stk",
+        "Tomater – 2 stk",
+        "Rejer i lage – 85 g",
+        "Fuldkorns toastbrød – 4 skiver",
+        "Mayonnaise – efter smag",
+        "Gulerødder – 4 stk",
+        "Peber – efter smag"
+      ],
+      steps: [
+        "Kog æggene i en gryde under låg i ca. 8 minutter til de hårdkogte. Efter kogning, skyl straks med koldt vand og pil skallen af. Skær æggene i skiver.",
+        "Tomaterne vaskes og skæres i skiver. Hæld lagen fra rejerne.",
+        "Rist toastbrødet på brødrister. Fordel tomat og æggeskiver på brødene og top med rejer og mayonnaise. Drys evt. med peber.",
+        "Servér grøntsagsstave ved siden af."
+      ]
+    }
+  ];
+
+  // Load from storage
+  async function loadRecipes() {
+    try {
+      const result = await window.storage.get('recipes');
+      if (result && result.value) {
+        recipes = JSON.parse(result.value);
+      }
+    } catch(e) {
+      recipes = [];
+    }
+
+    // Merge preloaded recipes (add if not already present)
+    for (const pre of preloadedRecipes) {
+      if (!recipes.find(r => r.name === pre.name)) {
+        recipes.push(pre);
+      }
+    }
+    renderRecipes();
+  }
+
+  async function saveToStorage() {
+    try {
+      if (window.storage) {
+        await window.storage.set('recipes', JSON.stringify(recipes));
+      }
+    } catch(e) {
+      // Storage not available – recipes stay in memory for this session
+    }
+  }
+
+  function renderRecipes() {
+    const list = document.getElementById('recipe-list');
+    const search = document.getElementById('search-input').value.toLowerCase();
+
+    const filtered = recipes.filter(r => {
+      const matchTag = currentTag === 'alle' || r.tag === currentTag;
+      const matchSearch = r.name.toLowerCase().includes(search);
+      return matchTag && matchSearch;
+    });
+
+    const count = document.getElementById('recipe-count');
+    count.textContent = recipes.length === 0 ? 'Ingen opskrifter endnu' : `${recipes.length} opskrift${recipes.length !== 1 ? 'er' : ''}`;
+
+    if (filtered.length === 0) {
+      list.innerHTML = `
+        <div class="empty-state">
+          <div class="icon">🍽️</div>
+          <h3>${recipes.length === 0 ? 'Din opskriftsbog er tom' : 'Ingen resultater'}</h3>
+          <p>${recipes.length === 0 ? 'Tryk + for at tilføje din første opskrift' : 'Prøv en anden søgning eller kategori'}</p>
+        </div>`;
+      return;
+    }
+
+    list.innerHTML = filtered.map((r, i) => `
+      <div class="recipe-card" onclick="openDetailModal(${recipes.indexOf(r)})">
+        <div class="recipe-emoji">${r.emoji || '🍴'}</div>
+        <div class="recipe-info">
+          <div class="recipe-name">${r.name}</div>
+          ${r.meta ? `<div class="recipe-meta">${r.meta}</div>` : ''}
+          <span class="recipe-tag">${r.tag}</span>
+        </div>
+        <div class="recipe-arrow">›</div>
+      </div>
+    `).join('');
+  }
+
+  function filterRecipes() { renderRecipes(); }
+
+  function filterByTag(tag, el) {
+    currentTag = tag;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    renderRecipes();
+  }
+
+  function openDetailModal(index) {
+    currentRecipeIndex = index;
+    const r = recipes[index];
+    document.getElementById('detail-emoji').textContent = r.emoji || '🍴';
+    document.getElementById('detail-name').textContent = r.name;
+    document.getElementById('detail-meta').textContent = r.meta || '';
+
+    const ingDiv = document.getElementById('detail-ingredients');
+    ingDiv.innerHTML = r.ingredients.map(ing => {
+      const parts = ing.split('–');
+      if (parts.length === 2) {
+        return `<div class="ingredient-row"><span class="ingredient-name">${parts[0].trim()}</span><span class="ingredient-amount">${parts[1].trim()}</span></div>`;
+      }
+      return `<div class="ingredient-row"><span class="ingredient-name">${ing}</span></div>`;
+    }).join('');
+
+    const stepsDiv = document.getElementById('detail-steps');
+    stepsDiv.innerHTML = r.steps.map((step, i) => `
+      <div class="step">
+        <div class="step-number">${i+1}</div>
+        <div class="step-text">${step}</div>
+      </div>
+    `).join('');
+
+    document.getElementById('detail-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetailModal() {
+    document.getElementById('detail-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    currentRecipeIndex = null;
+  }
+
+  function deleteCurrentRecipe() {
+    if (currentRecipeIndex === null) return;
+    if (!confirm('Slet denne opskrift?')) return;
+    recipes.splice(currentRecipeIndex, 1);
+    saveToStorage();
+    closeDetailModal();
+    renderRecipes();
+  }
+
+  function openAddModal() {
+    document.getElementById('add-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAddModal() {
+    document.getElementById('add-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    clearForm();
+  }
+
+  function clearForm() {
+    ['input-name','input-emoji','input-meta','input-ingredients','input-steps'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+  }
+
+  function saveRecipe() {
+    const name = document.getElementById('input-name').value.trim();
+    if (!name) { alert('Skriv venligst et navn på opskriften'); return; }
+
+    const ingredientsRaw = document.getElementById('input-ingredients').value.trim();
+    const stepsRaw = document.getElementById('input-steps').value.trim();
+
+    const recipe = {
+      name,
+      emoji: document.getElementById('input-emoji').value.trim() || '🍴',
+      tag: document.getElementById('input-tag').value,
+      meta: document.getElementById('input-meta').value.trim(),
+      ingredients: ingredientsRaw ? ingredientsRaw.split('\n').filter(l => l.trim()) : [],
+      steps: stepsRaw ? stepsRaw.split('\n').filter(l => l.trim()) : [],
+    };
+
+    recipes.unshift(recipe);
+    saveToStorage();
+    closeAddModal();
+    renderRecipes();
+  }
+
+  // Close modals on overlay click
+  document.getElementById('detail-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeDetailModal();
+  });
+  document.getElementById('add-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeAddModal();
+  });
+
+  loadRecipes();
+</script>
+</body>
+</html>
