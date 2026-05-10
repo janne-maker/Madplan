@@ -349,12 +349,12 @@
 </div>
 
 <div class="tabs" id="tabs">
-  <div class="tab active" onclick="filterByTag('alle', this)">Alle</div>
-  <div class="tab" onclick="filterByTag('aftensmad', this)">Aftensmad</div>
-  <div class="tab" onclick="filterByTag('frokost', this)">Frokost</div>
-  <div class="tab" onclick="filterByTag('vegetar', this)">Vegetar</div>
-  <div class="tab" onclick="filterByTag('pasta', this)">Pasta</div>
-  <div class="tab" onclick="filterByTag('suppe', this)">Suppe</div>
+  <div class="tab active" data-tag="alle" onclick="filterByTag('alle', this)">Alle</div>
+  <div class="tab" data-tag="aftensmad" onclick="filterByTag('aftensmad', this)">Aftensmad</div>
+  <div class="tab" data-tag="frokost" onclick="filterByTag('frokost', this)">Frokost</div>
+  <div class="tab" data-tag="vegetar" onclick="filterByTag('vegetar', this)">Vegetar</div>
+  <div class="tab" data-tag="pasta" onclick="filterByTag('pasta', this)">Pasta</div>
+  <div class="tab" data-tag="suppe" onclick="filterByTag('suppe', this)">Suppe</div>
 </div>
 
 <div class="recipe-list" id="recipe-list">
@@ -384,7 +384,7 @@
 
 <script>
   let recipes = [];
-  let currentTag = 'alle';
+  let selectedTags = new Set();
 
   async function loadRecipes() {
     try {
@@ -401,7 +401,7 @@
     const search = document.getElementById('search-input').value.toLowerCase();
 
     const filtered = recipes.filter(r => {
-      const matchTag = currentTag === 'alle' || r.tag === currentTag;
+      const matchTag = selectedTags.size === 0 || selectedTags.has(r.tag);
       const matchSearch = r.name.toLowerCase().includes(search);
       return matchTag && matchSearch;
     });
@@ -421,7 +421,7 @@
       return;
     }
 
-    list.innerHTML = filtered.map((r, i) => `
+    list.innerHTML = filtered.map((r) => `
       <div class="recipe-card" onclick="openDetailModal(${recipes.indexOf(r)})">
         <div class="recipe-emoji">${r.emoji || '🍴'}</div>
         <div class="recipe-info">
@@ -435,9 +435,23 @@
   }
 
   function filterByTag(tag, el) {
-    currentTag = tag;
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    el.classList.add('active');
+    if (tag === 'alle') {
+      selectedTags.clear();
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    } else {
+      document.querySelector('.tab[data-tag="alle"]').classList.remove('active');
+      if (selectedTags.has(tag)) {
+        selectedTags.delete(tag);
+        el.classList.remove('active');
+      } else {
+        selectedTags.add(tag);
+        el.classList.add('active');
+      }
+      if (selectedTags.size === 0) {
+        document.querySelector('.tab[data-tag="alle"]').classList.add('active');
+      }
+    }
     renderRecipes();
   }
 
