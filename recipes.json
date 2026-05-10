@@ -1,1 +1,91 @@
-[]
+[
+  {
+    "name": "Spicy æggesalat",
+    "emoji": "🥚",
+    "tag": "frokost",
+    "meta": "2 pers. · 20 min",
+    "ingredients": [
+      "Æg – 3 stk",
+      "Forårsløg – 1.5 stk",
+      "Fraiche 5% – 1 stor spsk",
+      "Mayonnaise, let – 0.5 spsk",
+      "Citronsaft – 0.5 spsk",
+      "Stærk chilisauce – efter smag",
+      "Fuldkornstoastbrød el. rugbrød – 4 skiver",
+      "Gulerødder – 2 stk",
+      "Agurk – 0.5 stk"
+    ],
+    "steps": [
+      "Kog æggene til de er hårdkogt (ca. 8 minutter). Køl dem i koldt vand, pil dem og hak dem i fine tern.",
+      "Vask og skær forårsløgene i skiver.",
+      "Bland en dressing af fraiche, mayo, stærk chilisauce (tilsæt lidt af gangen indtil du når den ønskede styrke), citronsaft og salt og peber.",
+      "Vend æggene og forårsløgene (gem lidt til pynt) i dressingen og smag æggesalaten til.",
+      "Server æggesalaten med ristet brød og gnavegrønt."
+    ]
+  },
+  {
+    "name": "One pot risret med chimichurri og halloumi",
+    "emoji": "🍚",
+    "tag": "aftensmad",
+    "meta": "2 pers. · 35 min",
+    "ingredients": [
+      "Halloumi – 0.5 pk",
+      "Olie – 0.5 spsk",
+      "Tomater – 250 g",
+      "Løg – 0.5 stk",
+      "Ærter – 1 dl",
+      "Ris – 1.5 dl",
+      "Vand – 3.5 dl",
+      "Bouillonterning – 0.5 stk",
+      "Rapsolie el. olivenolie (chimichurri) – 1 spsk",
+      "Balsamico (chimichurri) – 1 tsk",
+      "Hvidløg, presset (chimichurri) – 0.5 fed",
+      "Oregano (chimichurri) – 0.5 tsk",
+      "Spidskommen (chimichurri) – 0.13 tsk",
+      "Koriander (chimichurri) – 0.13 tsk",
+      "Chili el. cayennepeber (chimichurri) – 0.13 tsk",
+      "Frisk persille, hakket (chimichurri) – 1.5 spsk",
+      "Salt og peber"
+    ],
+    "steps": [
+      "Opvarm 1 spsk olie i en stor gryde, og svits halloumien kort.",
+      "Skær løg og tomater i grove terne og hæld det ved halloumien. Lad det svitse 1-2 minutter.",
+      "Tilføj ris, ærter, vand og bouillonterning, evt. lidt salt og peber.",
+      "Bring retten i kog, og lad retten simre (uden låg) i ca. 15 minutter ved middelvarme indtil vandet er kogt næsten ind og risene er møre. Rør undervejs, så den ikke brænder på.",
+      "Imens retten simrer blander du chimichurrien af olie, balsamico, krydderier samt hakket persille.",
+      "Når vandet er kogt næsten ind, tages gryden af varmen. Læg låg på gryden og lad den trække i 10 minutter.",
+      "Når retten har trukket vendes chimichurrien forsigtigt i risretten. Smag til med salt.",
+      "Server straks."
+    ]
+  },
+  {
+    "name": "Pasta med ovnbagt feta og grønt",
+    "emoji": "🧀",
+    "tag": "pasta",
+    "meta": "2 pers. · 40 min (halveret fra 4 pers.)",
+    "ingredients": [
+      "Feta – 100 g (halveret)",
+      "Cherrytomater – 125 g (halveret)",
+      "Peberfrugter – 1 stk (halveret)",
+      "Rødløg el. løg – 1 stk (halveret)",
+      "Hvidløg – 1.5 fed (halveret)",
+      "Olie, gerne olivenolie – 0.5 spsk (halveret)",
+      "Balsamico – 1 spsk (halveret)",
+      "Oregano – 0.5 spsk (halveret)",
+      "Rosmarin – 0.5 tsk (halveret)",
+      "Fuldkornspasta – 150 g (halveret)",
+      "Kogevand fra pastaen – 0.5 dl",
+      "Salt og peber"
+    ],
+    "steps": [
+      "Tænd ovnen på 200 grader.",
+      "Læg feta-blokken i midten af et ildfast fad.",
+      "Skyl cherrytomaterne og fordel dem rundt om fetaen i fadet.",
+      "Løg, hvidløg og peberfrugter hakkes i tern og fordeles rundt om fetaen i fadet.",
+      "Hæld olie og balsamico ved og drys med oregano, rosmarin, salt og peber.",
+      "Bag feta og grønt midt i ovnen i ca. 30 minutter. Imens koges pastaen som anvist på posen – gem 0.5 dl af kogevandet til saucen.",
+      "Når fadet kommer ud af ovnen moses feta og grønt med en gaffel. Tilføj 0.5 dl af kogevandet fra pastaen og rør det rundt.",
+      "Tilsæt tilslut den kogte pasta og vend det hele sammen."
+    ]
+  }
+]
