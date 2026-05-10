@@ -335,6 +335,67 @@
     color: var(--text-soft);
     font-size: 14px;
   }
+
+  /* WEEKLY MEAL PLAN */
+  .week-section {
+    background: var(--brown);
+    padding: 16px 16px 20px;
+  }
+
+  .week-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--brown-light);
+    margin-bottom: 12px;
+  }
+
+  .week-meals {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .week-meal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+
+  .week-meal-emoji {
+    font-size: 20px;
+    width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .week-meal-info { flex: 1; }
+
+  .week-meal-day {
+    font-size: 11px;
+    color: var(--brown-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .week-meal-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-top: 1px;
+  }
+
+  .week-meal-note {
+    font-size: 11px;
+    color: var(--brown-light);
+    margin-top: 2px;
+  }
 </style>
 </head>
 <body>
@@ -343,6 +404,11 @@
   <h1>📖 Min Opskriftsbog</h1>
   <p id="recipe-count">Henter opskrifter...</p>
 </header>
+
+<div class="week-section" id="week-section" style="display:none">
+  <div class="week-title" id="week-title">Ugens madplan</div>
+  <div class="week-meals" id="week-meals"></div>
+</div>
 
 <div class="search-bar">
   <input type="text" id="search-input" placeholder="🔍 Søg efter opskrift..." oninput="renderRecipes()">
@@ -385,6 +451,45 @@
 <script>
   let recipes = [];
   let selectedTags = new Set();
+
+  function getISOWeek(date) {
+    const d = new Date(date);
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
+    const week1 = new Date(d.getFullYear(), 0, 4);
+    return [
+      d.getFullYear(),
+      1 + Math.round(((d - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7)
+    ];
+  }
+
+  async function loadWeekPlan() {
+    const [year, week] = getISOWeek(new Date());
+    const weekStr = String(week).padStart(2, '0');
+    const filename = `week-${year}-${weekStr}.json`;
+    try {
+      const res = await fetch(filename + '?v=' + Date.now());
+      if (!res.ok) return;
+      const plan = await res.json();
+      const section = document.getElementById('week-section');
+      const title = document.getElementById('week-title');
+      const mealsDiv = document.getElementById('week-meals');
+      title.textContent = `Uge ${week} – Madplan`;
+      mealsDiv.innerHTML = plan.meals.map(m => `
+        <div class="week-meal">
+          <div class="week-meal-emoji">${m.emoji || '🍽️'}</div>
+          <div class="week-meal-info">
+            <div class="week-meal-day">${m.day}${m.type ? ' · ' + m.type : ''}</div>
+            <div class="week-meal-name">${m.meal}</div>
+            ${m.note ? `<div class="week-meal-note">📌 ${m.note}</div>` : ''}
+          </div>
+        </div>
+      `).join('');
+      section.style.display = 'block';
+    } catch(e) {
+      // No week plan file found – hide section
+    }
+  }
 
   async function loadRecipes() {
     try {
@@ -494,6 +599,7 @@
     if (e.target === this) closeDetailModal();
   });
 
+  loadWeekPlan();
   loadRecipes();
 </script>
 </body>
