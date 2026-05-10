@@ -479,9 +479,7 @@
         <div class="week-meal">
           <div class="week-meal-emoji">${m.emoji || '🍽️'}</div>
           <div class="week-meal-info">
-            <div class="week-meal-day">${m.day}${m.type ? ' · ' + m.type : ''}</div>
             <div class="week-meal-name">${m.meal}</div>
-            ${m.note ? `<div class="week-meal-note">📌 ${m.note}</div>` : ''}
           </div>
         </div>
       `).join('');
