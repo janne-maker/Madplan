@@ -1,0 +1,135 @@
+{
+  "week": 19,
+  "year": 2026,
+  "plan": [
+    { "meal": "Enchiladas med vegetarisk linsefyld", "emoji": "🌮" },
+    { "meal": "Quinoadeller", "emoji": "🌿" },
+    { "meal": "Fyldt pasta i grøntsagssauce", "emoji": "🍝" },
+    { "meal": "Rugbrødsmadder", "emoji": "🍞" }
+  ],
+  "recipes": [
+    {
+      "name": "Enchiladas med vegetarisk linsefyld",
+      "emoji": "🌮",
+      "tag": "vegetar",
+      "meta": "2 pers. · 45 min",
+      "ingredients": [
+        "Fuldkornstortillas – 6 stk",
+        "Revet cheddar – 50 g",
+        "Løg – 0.5 stk",
+        "Hvidløg – 1 fed",
+        "Peberfrugt – 0.5 stk",
+        "Røde linser, tørrede – 100 g",
+        "Tomatpure – 35 g",
+        "Spidskommen – 0.5 tsk",
+        "Paprika – 0.5 tsk",
+        "Oregano – 0.5 tsk",
+        "Chili eller cayennepeber – efter smag",
+        "Vand – 3 dl",
+        "Bouillonterning – 0.5 stk",
+        "Flåede tomater (sauce) – 0.5 ds",
+        "Løg (sauce) – 0.5 stk",
+        "Hvidløg (sauce) – 1 fed",
+        "Tomatpure (sauce) – 35 g",
+        "Paprika (sauce) – 0.5 spsk",
+        "Basilikum – 0.5 tsk",
+        "Sukker – 0.5 tsk",
+        "Majs, avocado, forårsløg, jalapeños, creme fraiche – til servering"
+      ],
+      "steps": [
+        "Tænd ovnen på 200 grader.",
+        "[Linsefyld] Hak løg, hvidløg og peberfrugt fint.",
+        "Opvarm olien på en pande og svits løg, hvidløg og peberfrugt ved middelvarme i ca. 5 minutter.",
+        "Tilsæt linser, krydderier, vand og bouillonterning og lad det simre i 20-25 minutter til vandet er kogt ind og linserne er møre – rør lidt undervejs så det ikke brænder på.",
+        "Smag til med salt og peber.",
+        "[Tomatsauce] Hak løg og hvidløg og svits det i 1 spsk olie i en gryde.",
+        "Tilsæt tomater, tomatpure og krydderier og lad det hele simre til løgene er møre.",
+        "Blend saucen jævn med en stavblender og smag til med salt og peber.",
+        "[Enchiladas] Fordel fyldet på midten af de 6 tortillas.",
+        "Fold siderne ind og rul tortillaerne stramt sammen.",
+        "Placer alle enchiladas i et ildfast fad.",
+        "Hæld tomatsaucen henover og drys med revet cheddar.",
+        "Bag i ovnen i 12-15 minutter til osten er gylden.",
+        "Servér evt. med majs, avocado, forårsløg, jalapeños og creme fraiche."
+      ]
+    },
+    {
+      "name": "Quinoadeller",
+      "emoji": "🌿",
+      "tag": "vegetar",
+      "meta": "2 pers. · 30 min",
+      "ingredients": [
+        "Quinoa, hvid – 50 g",
+        "Løg – 0.5 stk",
+        "Hvidløg – 1 fed",
+        "Æg – 1 stk",
+        "Paprika – 0.5 tsk",
+        "Spidskommen – 0.5 tsk",
+        "Salt – 0.5 tsk",
+        "Peber",
+        "Hvedemel – 1.5 spsk",
+        "Havregryn – 0.5 spsk",
+        "Ost (evt.) – 50 g",
+        "Olie til stegning – 0.5 spsk",
+        "Iceberg – 0.25 stk",
+        "Tomat – 1 stk",
+        "Agurk – 0.25 stk",
+        "Peberfrugt – 0.5 stk",
+        "Fuldkorns pitabrød – 0.5 portion"
+      ],
+      "steps": [
+        "Skyl quinoaen grundigt og kog den efter anvisning på pakken. Lad den køle let af.",
+        "Hak løg og hvidløg fint.",
+        "Bland quinoa, løg, hvidløg, æg, krydderier, mel og havregryn sammen. Tilsæt evt. revet ost. Rør til en sammenhængende masse – hvis den er for løs, tilsæt lidt mere mel.",
+        "Form massen til 4-6 deller med fugtige hænder.",
+        "Varm olie på en pande ved middelvarme og steg dellerne ca. 3-4 minutter på hver side til de er gyldne og sprøde.",
+        "Snit salaten og skær tomat, agurk og peberfrugt i stykker.",
+        "Servér quinoadellerne med salat og pitabrød."
+      ]
+    },
+    {
+      "name": "Fyldt pasta i grøntsagssauce",
+      "emoji": "🍝",
+      "tag": "pasta",
+      "meta": "2 pers. · 30 min",
+      "ingredients": [
+        "Fyldt pasta (ravioli/tortellini) – 400 g",
+        "Peberfrugt – 1 stk",
+        "Løg – 1 stk",
+        "Squash – 1 stk",
+        "Gulerødder – 3 stk",
+        "Hvidløg – 2 fed",
+        "Flåede tomater – 1 ds",
+        "Vand – 1 dl",
+        "Bouillonterning – 1 stk",
+        "Paprika – 2 tsk",
+        "Timian – 1 tsk",
+        "Oregano – 1 tsk",
+        "Sukker – 1 tsk",
+        "Balsamico – evt. et skvæt",
+        "Olie til stegning – 1 spsk"
+      ],
+      "steps": [
+        "Vask og hak grøntsagerne groft.",
+        "Opvarm lidt olie i en gryde og svits først løg. Når løgene er klare tilsættes resten af grøntsagerne og svitses et par minutter.",
+        "Tilsæt flåede tomater, vand, bouillonterning og krydderier og lad saucen simre 10 minutter.",
+        "Blend saucen jævn med en stavblender og smag til med salt og peber.",
+        "Kog den fyldte pasta som anvist på posen og vend den sammen med grøntsagssaucen."
+      ]
+    },
+    {
+      "name": "Rugbrødsmadder",
+      "emoji": "🍞",
+      "tag": "frokost",
+      "meta": "2 pers. · 10 min",
+      "ingredients": [
+        "Rugbrød – efter behov",
+        "Topping efter smag – fx æggesalat, pålæg, avocado"
+      ],
+      "steps": [
+        "Skær rugbrød i skiver.",
+        "Læg din foretrukne topping på og servér."
+      ]
+    }
+  ]
+}
