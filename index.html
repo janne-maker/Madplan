@@ -364,6 +364,16 @@
     background: rgba(255,255,255,0.08);
     border-radius: 12px;
     padding: 10px 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .week-meal:hover { background: rgba(255,255,255,0.14); }
+
+  .week-meal-arrow {
+    color: var(--brown-light);
+    font-size: 18px;
+    flex-shrink: 0;
   }
 
   .week-meal-emoji {
@@ -462,7 +472,7 @@
   }
 
   function weekFilename(year, week) {
-    return `week-${year}-${String(week).padStart(2, '0')}.json`;
+    return 'week-' + year + '-' + String(week).padStart(2, '0') + '.json';
   }
 
   function getPastWeeks(n) {
@@ -488,26 +498,25 @@
       if (res.ok) {
         const data = await res.json();
         if (data.plan && data.plan.length > 0) {
-          document.getElementById('week-title').textContent = `Uge ${week} – Ugens retter`;
-          document.getElementById('week-meals').innerHTML = data.plan.map(m => `
-            <div class="week-meal">
-              <div class="week-meal-emoji">${m.emoji || '🍽️'}</div>
-              <div class="week-meal-info">
-                <div class="week-meal-name">${m.meal}</div>
-              </div>
-            </div>
-          `).join('');
+          document.getElementById('week-title').textContent = 'Uge ' + week + ' – Ugens retter';
+          document.getElementById('week-meals').innerHTML = data.plan.map(function(m) {
+            return '<div class="week-meal" onclick="openRecipeByName(\'' + m.meal.replace(/'/g, "\'") + '\')">' +
+              '<div class="week-meal-emoji">' + (m.emoji || '🍽️') + '</div>' +
+              '<div class="week-meal-info"><div class="week-meal-name">' + m.meal + '</div></div>' +
+              '<div class="week-meal-arrow">›</div>' +
+              '</div>';
+          }).join('');
           document.getElementById('week-section').style.display = 'block';
         }
       }
     } catch(e) {}
 
     // Load all week files and collect unique recipes
-    const allFiles = getPastWeeks(104); // try up to 2 years back
+    const allFiles = getPastWeeks(104);
     const seen = new Set();
     recipes = [];
 
-    await Promise.all(allFiles.map(async filename => {
+    await Promise.all(allFiles.map(async function(filename) {
       try {
         const res = await fetch(filename);
         if (!res.ok) return;
@@ -526,11 +535,16 @@
     renderRecipes();
   }
 
+  function openRecipeByName(name) {
+    const index = recipes.findIndex(function(r) { return r.name === name; });
+    if (index !== -1) openDetailModal(index);
+  }
+
   function renderRecipes() {
     const list = document.getElementById('recipe-list');
     const search = document.getElementById('search-input').value.toLowerCase();
 
-    const filtered = recipes.filter(r => {
+    const filtered = recipes.filter(function(r) {
       const matchTag = selectedTags.size === 0 || selectedTags.has(r.tag);
       const matchSearch = r.name.toLowerCase().includes(search);
       return matchTag && matchSearch;
@@ -539,35 +553,30 @@
     const count = document.getElementById('recipe-count');
     count.textContent = recipes.length === 0
       ? 'Ingen opskrifter endnu'
-      : `${recipes.length} opskrift${recipes.length !== 1 ? 'er' : ''}`;
+      : recipes.length + ' opskrift' + (recipes.length !== 1 ? 'er' : '');
 
     if (filtered.length === 0) {
-      list.innerHTML = `
-        <div class="empty-state">
-          <div class="icon">🍽️</div>
-          <h3>${recipes.length === 0 ? 'Opskriftsbogen er tom' : 'Ingen resultater'}</h3>
-          <p>${recipes.length === 0 ? 'Nye opskrifter tilføjes hver uge' : 'Prøv en anden søgning eller kategori'}</p>
-        </div>`;
+      list.innerHTML = '<div class="empty-state"><div class="icon">🍽️</div>' +
+        '<h3>' + (recipes.length === 0 ? 'Opskriftsbogen er tom' : 'Ingen resultater') + '</h3>' +
+        '<p>' + (recipes.length === 0 ? 'Nye opskrifter tilføjes hver uge' : 'Prøv en anden søgning eller kategori') + '</p></div>';
       return;
     }
 
-    list.innerHTML = filtered.map((r) => `
-      <div class="recipe-card" onclick="openDetailModal(${recipes.indexOf(r)})">
-        <div class="recipe-emoji">${r.emoji || '🍴'}</div>
-        <div class="recipe-info">
-          <div class="recipe-name">${r.name}</div>
-          ${r.meta ? `<div class="recipe-meta">${r.meta}</div>` : ''}
-          <span class="recipe-tag">${r.tag}</span>
-        </div>
-        <div class="recipe-arrow">›</div>
-      </div>
-    `).join('');
+    list.innerHTML = filtered.map(function(r) {
+      return '<div class="recipe-card" onclick="openDetailModal(' + recipes.indexOf(r) + ')">' +
+        '<div class="recipe-emoji">' + (r.emoji || '🍴') + '</div>' +
+        '<div class="recipe-info">' +
+        '<div class="recipe-name">' + r.name + '</div>' +
+        (r.meta ? '<div class="recipe-meta">' + r.meta + '</div>' : '') +
+        '<span class="recipe-tag">' + r.tag + '</span>' +
+        '</div><div class="recipe-arrow">›</div></div>';
+    }).join('');
   }
 
   function filterByTag(tag, el) {
     if (tag === 'alle') {
       selectedTags.clear();
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
       el.classList.add('active');
     } else {
       document.querySelector('.tab[data-tag="alle"]').classList.remove('active');
@@ -592,24 +601,20 @@
     document.getElementById('detail-meta').textContent = r.meta || '';
 
     const ingDiv = document.getElementById('detail-ingredients');
-    ingDiv.innerHTML = r.ingredients.map(ing => {
+    ingDiv.innerHTML = r.ingredients.map(function(ing) {
       const parts = ing.split('–');
       if (parts.length === 2) {
-        return `<div class="ingredient-row">
-          <span class="ingredient-name">${parts[0].trim()}</span>
-          <span class="ingredient-amount">${parts[1].trim()}</span>
-        </div>`;
+        return '<div class="ingredient-row"><span class="ingredient-name">' + parts[0].trim() +
+          '</span><span class="ingredient-amount">' + parts[1].trim() + '</span></div>';
       }
-      return `<div class="ingredient-row"><span class="ingredient-name">${ing}</span></div>`;
+      return '<div class="ingredient-row"><span class="ingredient-name">' + ing + '</span></div>';
     }).join('');
 
     const stepsDiv = document.getElementById('detail-steps');
-    stepsDiv.innerHTML = r.steps.map((step, i) => `
-      <div class="step">
-        <div class="step-number">${i+1}</div>
-        <div class="step-text">${step}</div>
-      </div>
-    `).join('');
+    stepsDiv.innerHTML = r.steps.map(function(step, i) {
+      return '<div class="step"><div class="step-number">' + (i+1) + '</div>' +
+        '<div class="step-text">' + step + '</div></div>';
+    }).join('');
 
     document.getElementById('detail-modal').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -625,153 +630,6 @@
   });
 
   loadAll();
-</script>
-    const d = new Date(date);
-    d.setHours(0, 0, 0, 0);
-    d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
-    const week1 = new Date(d.getFullYear(), 0, 4);
-    return [
-      d.getFullYear(),
-      1 + Math.round(((d - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7)
-    ];
-  }
-
-  async function loadWeekPlan() {
-    const [year, week] = getISOWeek(new Date());
-    const weekStr = String(week).padStart(2, '0');
-    const filename = `week-${year}-${weekStr}.json`;
-    try {
-      const res = await fetch(filename + '?v=' + Date.now());
-      if (!res.ok) return;
-      const plan = await res.json();
-      const section = document.getElementById('week-section');
-      const title = document.getElementById('week-title');
-      const mealsDiv = document.getElementById('week-meals');
-      title.textContent = `Uge ${week} – Madplan`;
-      mealsDiv.innerHTML = plan.meals.map(m => `
-        <div class="week-meal">
-          <div class="week-meal-emoji">${m.emoji || '🍽️'}</div>
-          <div class="week-meal-info">
-            <div class="week-meal-name">${m.meal}</div>
-          </div>
-        </div>
-      `).join('');
-      section.style.display = 'block';
-    } catch(e) {
-      // No week plan file found – hide section
-    }
-  }
-
-  async function loadRecipes() {
-    try {
-      const res = await fetch('recipes.json?v=' + Date.now());
-      recipes = await res.json();
-    } catch(e) {
-      recipes = [];
-    }
-    renderRecipes();
-  }
-
-  function renderRecipes() {
-    const list = document.getElementById('recipe-list');
-    const search = document.getElementById('search-input').value.toLowerCase();
-
-    const filtered = recipes.filter(r => {
-      const matchTag = selectedTags.size === 0 || selectedTags.has(r.tag);
-      const matchSearch = r.name.toLowerCase().includes(search);
-      return matchTag && matchSearch;
-    });
-
-    const count = document.getElementById('recipe-count');
-    count.textContent = recipes.length === 0
-      ? 'Ingen opskrifter endnu'
-      : `${recipes.length} opskrift${recipes.length !== 1 ? 'er' : ''}`;
-
-    if (filtered.length === 0) {
-      list.innerHTML = `
-        <div class="empty-state">
-          <div class="icon">🍽️</div>
-          <h3>${recipes.length === 0 ? 'Opskriftsbogen er tom' : 'Ingen resultater'}</h3>
-          <p>${recipes.length === 0 ? 'Nye opskrifter tilføjes hver uge' : 'Prøv en anden søgning eller kategori'}</p>
-        </div>`;
-      return;
-    }
-
-    list.innerHTML = filtered.map((r) => `
-      <div class="recipe-card" onclick="openDetailModal(${recipes.indexOf(r)})">
-        <div class="recipe-emoji">${r.emoji || '🍴'}</div>
-        <div class="recipe-info">
-          <div class="recipe-name">${r.name}</div>
-          ${r.meta ? `<div class="recipe-meta">${r.meta}</div>` : ''}
-          <span class="recipe-tag">${r.tag}</span>
-        </div>
-        <div class="recipe-arrow">›</div>
-      </div>
-    `).join('');
-  }
-
-  function filterByTag(tag, el) {
-    if (tag === 'alle') {
-      selectedTags.clear();
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-    } else {
-      document.querySelector('.tab[data-tag="alle"]').classList.remove('active');
-      if (selectedTags.has(tag)) {
-        selectedTags.delete(tag);
-        el.classList.remove('active');
-      } else {
-        selectedTags.add(tag);
-        el.classList.add('active');
-      }
-      if (selectedTags.size === 0) {
-        document.querySelector('.tab[data-tag="alle"]').classList.add('active');
-      }
-    }
-    renderRecipes();
-  }
-
-  function openDetailModal(index) {
-    const r = recipes[index];
-    document.getElementById('detail-emoji').textContent = r.emoji || '🍴';
-    document.getElementById('detail-name').textContent = r.name;
-    document.getElementById('detail-meta').textContent = r.meta || '';
-
-    const ingDiv = document.getElementById('detail-ingredients');
-    ingDiv.innerHTML = r.ingredients.map(ing => {
-      const parts = ing.split('–');
-      if (parts.length === 2) {
-        return `<div class="ingredient-row">
-          <span class="ingredient-name">${parts[0].trim()}</span>
-          <span class="ingredient-amount">${parts[1].trim()}</span>
-        </div>`;
-      }
-      return `<div class="ingredient-row"><span class="ingredient-name">${ing}</span></div>`;
-    }).join('');
-
-    const stepsDiv = document.getElementById('detail-steps');
-    stepsDiv.innerHTML = r.steps.map((step, i) => `
-      <div class="step">
-        <div class="step-number">${i+1}</div>
-        <div class="step-text">${step}</div>
-      </div>
-    `).join('');
-
-    document.getElementById('detail-modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeDetailModal() {
-    document.getElementById('detail-modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('detail-modal').addEventListener('click', function(e) {
-    if (e.target === this) closeDetailModal();
-  });
-
-  loadWeekPlan();
-  loadRecipes();
 </script>
 </body>
 </html>
