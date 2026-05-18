@@ -7,7 +7,7 @@
     { "meal": "Pitabrød med bønnedeller og kålsalat", "emoji": "🫓" },
     { "meal": "Kartoffelmadder med hummus", "emoji": "🥔" }
   ],
-  "recipes": [
+  "recipes": [ 
     {
       "name": "Tomatrisotto med sorte bønner",
       "emoji": "🍅",
