@@ -1,0 +1,136 @@
+{
+  "week": 23,
+  "year": 2026,
+  "plan": [
+    { "meal": "One pot taco-risret", "emoji": "🌮" },
+    { "meal": "Cajun kål med nudler og chorizo", "emoji": "🥬" },
+    { "meal": "Kikærtefrikadeller med hvidkålstzatziki og kartoffelbåde", "emoji": "🧆" },
+    { "meal": "Rugbrød med spejlæg og stegte tomater", "emoji": "🍳" }
+  ],
+  "recipes": [
+    {
+      "name": "One pot taco-risret",
+      "emoji": "🌮",
+      "tag": "vegetar",
+      "meta": "2 pers. · 40 min",
+      "ingredients": [
+        "Løg – 1 stk",
+        "Peberfrugter – 1 stk",
+        "Sortebønner – 0.5 ds",
+        "Olie – 0.5 spsk",
+        "Tomater – 2 stk",
+        "Ris – 1.5 dl",
+        "Vand – 4 dl",
+        "Bouillonterning – 0.5 stk",
+        "Tomatpuré – 1 spsk",
+        "Tacokrydderi – 1 spsk (el. 1 tsk spidskommen, 0.5 tsk chili og 0.5 spsk paprika)",
+        "Chili efter smag",
+        "Salt og peber",
+        "Avocado – 1 stk (guacamole)",
+        "Hvidløg – 1 fed (guacamole)",
+        "Lime- eller citronsaft – 1 spsk (guacamole)",
+        "Salt (guacamole)"
+      ],
+      "steps": [
+        "Vask og hak løg, peberfrugt og tomater i tern. Drén bønnerne og skyl dem.",
+        "Opvarm lidt olie i en gryde og svits løgene til de er klare. Tilsæt derefter resten af grøntsagerne og lad det hele stege 1-2 minutter.",
+        "Tilsæt ris, vand, bouillonterning, tacokrydderi og tomatpuré.",
+        "Lad retten simre ved middelvarme indtil risene er møre og vandet kogt ind. Rør undervejs (retten skal ikke bulderkoge).",
+        "Smag til med salt og peber.",
+        "Lad retten trække under låg i 5-10 minutter.",
+        "[Guacamole] Fjern skræl og sten på avocadoen. Mos den med presset hvidløg, limesaft og salt. Smag til.",
+        "Server risretten med en klat guacamole på toppen. Limesaft, jalapenos og fraiche er også lækkert som topping."
+      ]
+    },
+    {
+      "name": "Cajun kål med nudler og chorizo",
+      "emoji": "🥬",
+      "tag": "aftensmad",
+      "meta": "4 pers. · 30 min",
+      "ingredients": [
+        "Paprika, gerne røget (cajun krydderi) – 1 tsk",
+        "Oregano (cajun krydderi) – 0.5 tsk",
+        "Timian (cajun krydderi) – 0.5 tsk",
+        "Stødt løgpulver (cajun krydderi) – 0.25 tsk",
+        "Hvidløgspulver (cajun krydderi) – 0.25 tsk",
+        "Cayennepeber (cajun krydderi) – 0.25 tsk",
+        "Peber (cajun krydderi) – et drys",
+        "Salt (cajun krydderi) – 0.25 tsk",
+        "Olie – 1 spsk",
+        "Løg – 2 stk",
+        "Spidskål el. hvidkål – 600 g",
+        "Chorizo, hel – 150-200 g",
+        "Vand – 2 dl",
+        "Fuldkornsnudler – 250 g",
+        "Salt og peber",
+        "Chilisauce – evt. et skvæt"
+      ],
+      "steps": [
+        "[Cajun krydderiblanding] Bland ingredienserne til krydderblandingen og stil til side.",
+        "Kog fuldkornsnudlerne som anvist på posen.",
+        "Snit kålen fint, skær løgene i halve skiver og skær chorizoen i mundrette stykker.",
+        "Opvarm olien i en stor gryde. Tilsæt chorizostykkerne og brun dem af.",
+        "Tilsæt løg og svits dem til de er klare.",
+        "Tilsæt cajun krydderiblanding, kål og vand, og rør rundt. Lad retten småsimre under låg i ca. 6-8 minutter. Rør undervejs.",
+        "Tilføj de kogte nudler til kålretten, og smag det hele til med salt og peber, og evt. et skvæt chilisauce."
+      ]
+    },
+    {
+      "name": "Kikærtefrikadeller med hvidkålstzatziki og kartoffelbåde",
+      "emoji": "🧆",
+      "tag": "vegetar",
+      "meta": "2 pers. · 75 min",
+      "ingredients": [
+        "Kartofler – 500 g",
+        "Olie – 1 spsk",
+        "Rosmarin – 1 tsk",
+        "Kikærter, afdryppede og skyllede – 1 ds",
+        "Æg – 1 stk",
+        "Hvidløg – 1.5 fed",
+        "Mælk – 0.25 dl",
+        "Mel – 0.5 spsk",
+        "Citronsaft – 1 spsk",
+        "Paprika – 0.5 tsk",
+        "Spidskommen – 0.5 tsk",
+        "Salt – 0.75 tsk",
+        "Peber",
+        "Olie til stegning",
+        "Evt. lidt stødt chili",
+        "Hvidkål el. spidskål – 250 g (tzatziki)",
+        "Cheasy fraiche 5% el. græsk yoghurt – 1.5 dl (tzatziki)",
+        "Hvidløg – 1 fed (tzatziki)",
+        "Salt og peber (tzatziki)"
+      ],
+      "steps": [
+        "Tænd ovnen på 180 grader varmluft.",
+        "Kartoflerne skrælles og skæres i både. Vend dem i 1 spsk. olie, rosmarin samt salt og peber. Fordel kartoflerne på en bageplade med bagepapir og bag i ovnen i ca. 50 minutter.",
+        "[Hvidkålstzatziki] Vask og snit kålen fint. Rør en dressing af fraiche, hvidløg samt salt og peber, og vend den sammen med kålen. Sæt salaten på køl indtil den skal spises.",
+        "[Kikærtefrikadeller] Hak/blend de afdryppede kikærter i en minihakker, foodprocessor eller blender.",
+        "Kom de øvrige ingredienser i og bland det godt sammen. Form 8-10 flade frikadeller og gennemsteg dem i olie på en pande ved middelvarme.",
+        "Server kikærtefrikadellerne med kartoffelbåde og hvidkålstzatziki."
+      ]
+    },
+    {
+      "name": "Rugbrød med spejlæg og stegte tomater",
+      "emoji": "🍳",
+      "tag": "frokost",
+      "meta": "1 pers. · 30 min",
+      "ingredients": [
+        "Æg – 2 stk",
+        "Cherrytomater el. alm tomater – 125 g",
+        "Timian – 0.5 tsk",
+        "Oregano – 0.5 tsk",
+        "Salt og peber",
+        "Olie til stegning",
+        "Balsamico – evt. et skvæt",
+        "Rugbrød – 2 skiver",
+        "Gulerødder – 1 stk"
+      ],
+      "steps": [
+        "Opvarm en pande med lidt olie, og slå æggene ud på den varme pande – husk afstand imellem så de ikke smelter sammen. Steg æggene til hviden er fast og blommen er let flydende. Drys med salt og peber.",
+        "Skær tomaterne i mundrette stykker og steg dem på den varme pande et par minutter sammen med timian, oregano og et skvæt balsamico. Smag til med salt og peber.",
+        "Servér spejlæg og tomater sammen med rugbrød og grøntssagsstave."
+      ]
+    }
+  ]
+}
