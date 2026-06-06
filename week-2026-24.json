@@ -1,0 +1,110 @@
+{
+  "week": 24,
+  "year": 2026,
+  "plan": [
+    { "meal": "Tacoskaller med frijoles negros", "emoji": "🌮" },
+    { "meal": "Kokosnudler", "emoji": "🍜" },
+    { "meal": "Mexicansk linsegryde med sprøde ostebrød", "emoji": "🥘" }
+  ],
+  "recipes": [
+    {
+      "name": "Tacoskaller med frijoles negros (sorte bønner)",
+      "emoji": "🌮",
+      "tag": "vegetar",
+      "meta": "2 pers. · 30 min",
+      "ingredients": [
+        "Sorte bønner – 1.5 ds",
+        "Løg – 1 stk",
+        "Hvidløg – 1.5 fed",
+        "Peberfrugt – 1 stk",
+        "Olie – 0.5 spsk",
+        "Vand – 1.25 dl",
+        "Balsamico el. rødvinseddike – 1 spsk",
+        "Sukker – 1 tsk",
+        "Laurbærblade – 1.5 stk",
+        "Oregano – 1 tsk",
+        "Spidskommen – 0.75 tsk",
+        "Salt og peber",
+        "Tacoskaller – 0.5 pk",
+        "Revet cheddar – 0.5 ps",
+        "Tacosauce – 0.5 gl",
+        "Evt. jalapenos, majs, avocado"
+      ],
+      "steps": [
+        "Tænd ovnen på 180 grader varmluft.",
+        "Dræn væden fra de sorte bønner og skyl dem under den kolde hane.",
+        "Hak løg, hvidløg og peberfrugt fint.",
+        "Opvarm lidt olie i en gryde og svits løg, hvidløg og peberfrugt til løgene er klare.",
+        "Tilsæt de sorte bønner og svits kort.",
+        "Tilsæt vand, laurbærblade, balsamico, sukker og krydderier, og lad det hele simre ved lav varme til vandet er kogt næsten ind.",
+        "Fjern laurbærbladene og smag til med salt og peber.",
+        "Fyld tacoskallerne med bønnefyld og drys med revet cheddar. Stil skallerne i et ildfast fad, så fyldet ikke flyder ud.",
+        "Bag dem i ovnen i ca. 5-7 minutter til osten er smeltet og skallerne varme.",
+        "Server med en klat tacosauce, og evt. topping af jalapenos, majs, avocado eller hvad man har lyst til."
+      ]
+    },
+    {
+      "name": "Kokosnudler",
+      "emoji": "🍜",
+      "tag": "vegetar",
+      "meta": "2 pers. · 30 min",
+      "ingredients": [
+        "Kål el. kålblanding – 150 g",
+        "Peberfrugt – 0.5 stk",
+        "Forårsløg – 0.5 bundt",
+        "Olie – 0.5 spsk",
+        "Røde linser – 0.5 ds",
+        "Karry el. rød karrypasta – 1 tsk",
+        "Bouillonterning – 0.5 stk",
+        "Kokosmælk, light 400 ml – 0.5 ds",
+        "Peanutbutter – 0.5 spsk",
+        "Limesaft – 1.5 spsk",
+        "Sojasauce – 1.5 spsk",
+        "Salt og peber",
+        "Fuldkorsnudler – 125 g"
+      ],
+      "steps": [
+        "Vask og snit kål, peberfrugt og forårsløg. Dræn linserne for lage og skyl dem.",
+        "Opvarm lidt olie i en gryde og svit grøntsagerne.",
+        "Tilsæt røde linser, kokosmælk, peanutbutter, krydderier, limesaft og soyasauce.",
+        "Lad det simre et par minutter.",
+        "Tilsæt kogte fuldkorsnudler og bland det hele sammen.",
+        "Smag til med salt og peber, og evt. mere lime og krydderier."
+      ]
+    },
+    {
+      "name": "Mexicansk linsegryde med sprøde ostebrød",
+      "emoji": "🥘",
+      "tag": "vegetar",
+      "meta": "2 pers. · 40 min",
+      "ingredients": [
+        "Løg – 0.5 stk",
+        "Hvidløg – 2 fed",
+        "Bladselleri – 2 stængler",
+        "Peberfrugt – 0.5 stk",
+        "Olie – 0.5 spsk",
+        "Røde linser – 125 g",
+        "Hakkede tomater – 1 ds",
+        "Vand – 4 dl",
+        "Bouillonterning – 0.5 stk",
+        "Spidskommen – 0.5 tsk",
+        "Koriander – 0.5 tsk",
+        "Limesaft – 0.5 lime",
+        "Chili el. cayennepeber – efter smag",
+        "Evt. stærk chilisauce",
+        "Salt og peber",
+        "Fuldkornsbaguette – 0.5 stk",
+        "Revet cheddar – 50 g"
+      ],
+      "steps": [
+        "Hak løg, hvidløg, bladselleri og peberfrugt fint.",
+        "Opvarm lidt olie i en stor gryde. Steg grøntsagerne til løgene er blanke.",
+        "Tilsæt linser, hakket tomat, vand, bouillonterning, limesaft samt krydderier.",
+        "Lad retten simre i minimum 20 minutter – det er vigtigt at røde linser er kogt minimum 20 minutter. Imens kan du lave ostebrødene.",
+        "Smag til med salt og peber, og evt. chili. Server med sprøde ostebrød.",
+        "Ostebrød: Tænd ovnen på 180 grader varmluft. Skær baguetten i skrå skiver. Læg skiverne på en bageplade med bagepapir og drys dem med revet cheddar.",
+        "Bag i ovnen i ca. 8-10 minutter til osten er smeltet og let gylden."
+      ]
+    }
+  ]
+}
