@@ -1,0 +1,120 @@
+{
+  "week": 26,
+  "year": 2026,
+  "plan": [
+    { "meal": "Veggiedeller med hjemmelavet tomatsalsa og lynhurtige madbrød", "emoji": "🧆" },
+    { "meal": "One pot pasta Arrabiata", "emoji": "🍝" },
+    { "meal": "One pot risret med chimichurri kylling", "emoji": "🍗" }
+  ],
+  "recipes": [
+    {
+      "name": "Veggiedeller med hjemmelavet tomatsalsa og lynhurtige madbrød",
+      "emoji": "🧆",
+      "tag": "vegetar",
+      "meta": "2 pers. · 1 t 10 min",
+      "ingredients": [
+        "Kartofler – 125 g",
+        "Gulerødder – 100 g",
+        "Squash – 0.5 stk",
+        "Hvidløg – 1 fed",
+        "Løg, alm. – 0.5 stk",
+        "Æg – 1 stk",
+        "Mel – 1 spsk",
+        "Spidskommen – 0.5 tsk",
+        "Paprika – 0.5 tsk",
+        "Salt – 1 tsk",
+        "Peber – 0.25 tsk",
+        "Olie til stegning – 0.5 spsk",
+        "Tomater el. cherrytomater (tomatsalsa) – 250 g",
+        "Peberfrugt (tomatsalsa) – 0.5 stk",
+        "Løg, alm. el. rødløg (tomatsalsa) – 1 stk",
+        "Hvidløg (tomatsalsa) – 1 fed",
+        "Olie, smagsneutral (tomatsalsa) – 0.5 spsk",
+        "Balsamico (tomatsalsa) – 0.25 spsk",
+        "Sukker (tomatsalsa) – 0.25 tsk",
+        "Basilikum (tomatsalsa) – 0.5 tsk",
+        "Chili (tomatsalsa) – efter smag",
+        "Frisk persille (tomatsalsa) – evt. en dusk",
+        "Salt og peber",
+        "Madbrød (tilbehør, se separat opskrift) – 0.5 portion"
+      ],
+      "steps": [
+        "Start med at lave madbrødene – se separat opskrift.",
+        "Vask og skræl kartofler og gulerødder. Pil løg og hvidløg, og vask squashen.",
+        "Riv alle grøntsagerne fint.",
+        "Læg de revne grøntsager på midten af et viskestykke, og vrid så meget væde ud af dem som muligt – det er vigtigt for at dellerne ikke bliver for bløde.",
+        "Rør grøntsagerne med æg, mel og krydderier.",
+        "Opvarm lidt olie på en pande og form grøntsagsfarsen til små fine frikadeller. Steg dem ved middelvarme til de har en gylden stegeskorpe på begge sider og er gennemstegte.",
+        "Tomatsalsa: Vask og skær tomater og peberfrugt i små fine tern. Skræl løg og hvidløg, og hak dem fint.",
+        "Bland en dressing af olie, balsamico, sukker og krydderier.",
+        "Vend tomat, peberfrugt, løg og hvidløg sammen med dressingen. Smag salsaen til med salt og peber.",
+        "Lad gerne salsaen trække i køleskabet i 30 minutter, inden servering."
+      ]
+    },
+    {
+      "name": "One pot pasta Arrabiata",
+      "emoji": "🍝",
+      "tag": "pasta",
+      "meta": "2 pers. · 20 min",
+      "ingredients": [
+        "Hakkede tomater (dåse) – 1 ds",
+        "Hvidløg – 1.5 fed",
+        "Olie – 0.5 spsk",
+        "Sambal oelek el. friskhakket chili – 1 spsk",
+        "Basilikum – 0.5 spsk",
+        "Balsamico – 0.5 spsk",
+        "Sukker – 1 tsk",
+        "Vand – 2 dl",
+        "Fuldkornsspaghetti – 150 g",
+        "Salt og peber",
+        "Revet parmesan el. vegansk ost – 50 g"
+      ],
+      "steps": [
+        "Opvarm lidt olie i en gryde.",
+        "Svits først presset hvidløg ganske kort, og tilsæt herefter hakkede tomater.",
+        "Tilsæt chili – sambal oelek, frisk chili eller anden chilipasta efter smag.",
+        "Tilsæt vand, spaghetti, sukker og balsamico.",
+        "Lad retten simre ved middelvarme til vandet er kogt ind og spaghettien er al dente.",
+        "Smag til med salt og peber, og evt. mere chili efter smag.",
+        "Server med revet parmesan (el. vegansk ost) på toppen."
+      ]
+    },
+    {
+      "name": "One pot risret med chimichurri kylling",
+      "emoji": "🍗",
+      "tag": "aftensmad",
+      "meta": "2 pers. · 35 min",
+      "ingredients": [
+        "Kyllingebryst, inderfilet el. lårfilet – 200 g",
+        "Olie – 0.5 spsk",
+        "Tomater – 250 g",
+        "Løg, alm. – 0.5 stk",
+        "Ærter – 1 dl",
+        "Ris – 1.5 dl",
+        "Vand – 3.5 dl",
+        "Bouillonterning – 0.5 stk",
+        "Salt og peber",
+        "Rapsolie el. olivenolie (chimichurri) – 1 spsk",
+        "Balsamico (chimichurri) – 1 tsk",
+        "Hvidløg, presset (chimichurri) – 0.5 fed",
+        "Oregano (chimichurri) – 0.5 tsk",
+        "Spidskommen (chimichurri) – 0.13 tsk",
+        "Koriander (chimichurri) – 0.13 tsk",
+        "Chili el. cayennepeber (chimichurri) – 0.13 tsk",
+        "Frisk persille, hakket (chimichurri) – 1.5 spsk",
+        "Salt (chimichurri) – 0.13 tsk"
+      ],
+      "steps": [
+        "Skær kyllingen i mundrette stykker.",
+        "Opvarm 1 spsk olie i en stor gryde, og brun kyllingestykkerne – de skal ikke gennemsteges.",
+        "Skær løg og tomater i grove terne, og hæld det ved kyllingen. Lad det svitse 1-2 minutter.",
+        "Tilføj ris, ærter, vand og bouillonterning, evt. lidt salt og peber.",
+        "Bring retten i kog, og lad retten simre (uden låg) i ca. 15 minutter ved middelvarme indtil vandet er kogt næsten ind og risene er møre. Rør undervejs, så den ikke brænder på.",
+        "Imens retten simrer blander du chimichurrien af olie, balsamico, krydderier samt hakket persille.",
+        "Når vandet er kogt næsten ind, tages gryden af varmen. Læg låg på gryden og lad den trække i 10 minutter.",
+        "Når retten har trukket, vendes chimichurrien forsigtigt i risretten. Smag til med salt.",
+        "Server straks :)"
+      ]
+    }
+  ]
+}
