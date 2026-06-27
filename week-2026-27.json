@@ -1,0 +1,109 @@
+{
+  "week": 27,
+  "year": 2026,
+  "plan": [
+    { "meal": "Sorte bønnefrikadeller med kålsalat", "emoji": "🫘" },
+    { "meal": "Avocadotoast med spejlæg", "emoji": "🥑" },
+    { "meal": "Indisk kartoffelcurry med hjemmelavede madbrød", "emoji": "🍛" }
+  ],
+  "recipes": [
+    {
+      "name": "Sorte bønnefrikadeller med kålsalat",
+      "emoji": "🫘",
+      "tag": "aftensmad",
+      "meta": "2 pers. · 30 min",
+      "ingredients": [
+        "Sorte bønner – 1 ds",
+        "Æg – 1 stk",
+        "Løg, alm. – 0.5 stk",
+        "Revet ost – 50 g",
+        "BBQ sauce – 1 spsk",
+        "Havregryn – 3 spsk",
+        "Paprika – 0.5 tsk",
+        "Hvidløgspulver – 0.5 tsk",
+        "Løgpulver – 0.5 tsk",
+        "Spidskommen – 0.25 tsk",
+        "Salt – 0.75 tsk",
+        "Kålblanding – 175 g",
+        "Majs – 0.5 ds",
+        "Forårsløg – 0.25 bundt",
+        "Lime – 0.5 stk",
+        "Olie – 0.5 spsk",
+        "Honning – 0.5 tsk",
+        "Spidskommen (kålsalat) – 0.13 tsk",
+        "Chili el. cayennepeber – 0.13 tsk",
+        "Salt og peber",
+        "Fuldkornspitabrød – 2 stk"
+      ],
+      "steps": [
+        "Tænd ovnen på 180 grader varmluft.",
+        "Hæld væden fra de sorte bønner og skyl dem under den kolde hane. Sørg for at de er dryppet godt af inden du moser dem, da farsen ellers godt kan blive tynd.",
+        "Skræl og riv løg.",
+        "Kom bønnerne i en skål og mos dem med en gaffel eller hænderne. De må gerne have lidt struktur, det giver bid til dellerne, fremfor en hel jævn mos.",
+        "Rør de mosede bønner sammen med resten af ingredienserne. Er farsen for våd tilsættes mere rasp eller havregryn, er farsen for tør kan der tilsættes lidt ekstra æg eller vand.",
+        "Form farsen til små runde frikadeller, brug ca. 1 stor tsk fars pr. frikadelle, og fordel dem på en bageplade med bagepapir.",
+        "Bag frikadellerne i ovnen i ca. 25-30 minutter.",
+        "Kom kålblandingen i en skål. Vask og snit forårsløgene, hæld væden fra majsene og bland forårsløg og majs med kålblandingen.",
+        "Pres saften fra 1 lime og bland med olie, honning og krydderier. Vend dressingen sammen med kålsalaten. Smag til med lime og krydderier.",
+        "Lun pitabrødene og server dem sammen med frikadellerne og kålsalaten."
+      ]
+    },
+    {
+      "name": "Avocadotoast med spejlæg",
+      "emoji": "🥑",
+      "tag": "frokost",
+      "meta": "2 pers. · 10 min",
+      "ingredients": [
+        "Fuldkornstoastbrød – 4 stk",
+        "Avocado, moden – 1 stk",
+        "Salt og peber",
+        "Tomater – 1 stk",
+        "Ost, evt. (f.eks. chili gouda) – et par skiver",
+        "Æg – 4 stk",
+        "Olie til stegning",
+        "Agurk – 0.5 stk",
+        "Gulerødder – 2 stk"
+      ],
+      "steps": [
+        "Fjern skræl og sten, og mos de modne avocado i en skål med lidt salt og peber.",
+        "Fordel den moste avocado på 4 stykker toastbrød.",
+        "Skær tomaterne i skiver og fordel dem oven på avocadoen. Drys evt. med lidt salt og peber.",
+        "Du kan komme et par skiver ost i toasten hvis du er til det, og ellers så lægges der en skive toastbrød oven på tomaterne og toastene ristes i toastmaskinen til de er gyldne.",
+        "Slå æggene ud på en middelvarm pande og steg dem til æggehviden er fast og blommen er let flydende. Drys med salt og peber.",
+        "Servér toasten med spejlæg på toppen og grøntsagsstave ved siden af."
+      ]
+    },
+    {
+      "name": "Indisk kartoffelcurry med hjemmelavede madbrød",
+      "emoji": "🍛",
+      "tag": "aftensmad",
+      "meta": "2 pers. · 1 t 10 min",
+      "ingredients": [
+        "Kartofler – 250 g",
+        "Løg, alm. – 1 stk",
+        "Hvidløg – 1 fed",
+        "Peberfrugt – 0.5 stk",
+        "Røde linser – 1 dl",
+        "Garam masala – 0.75 spsk",
+        "Spidskommen – 0.5 tsk",
+        "Koriander – 0.5 tsk",
+        "Hakkede tomater – 0.5 ds",
+        "Vand – 2 dl",
+        "Kokosmælk, light – 200 ml",
+        "Bouillonterning – 0.5 stk",
+        "Salt og peber",
+        "Olie til stegning – 0.5 spsk",
+        "Madbrød (se separat opskrift) – 0.5 portion"
+      ],
+      "steps": [
+        "Start med at få madbrødene i ovnen (se opskrift).",
+        "Kartofler skrælles og skæres i grove tern.",
+        "Skræl løg og hvidløg og hak dem i fine tern. Peberfrugten skæres i tern.",
+        "Opvarm lidt olie i en stor gryde, og svits løg og hvidløg kort. Tilsæt krydderi og svits dem kort med.",
+        "Tilsæt kartofler og peberfrugt - svits det hele kort.",
+        "Tilsæt linser, vand, hakkede tomater, bouillon og kokosmælk, og lad retten simre i 20 minutter til linser og kartofler er mører.",
+        "Smag retten til med salt og peber, og server med groft madbrød."
+      ]
+    }
+  ]
+}
