@@ -1,0 +1,95 @@
+{
+  "week": 32,
+  "year": 2026,
+  "plan": [
+    { "meal": "\"Chicken\" korma med chick free", "emoji": "🍛" },
+    { "meal": "Tomatrisotto med sorte bønner", "emoji": "🍚" },
+    { "meal": "Toscansk pastaret med hvide bønner, spinat og tomater", "emoji": "🍝" }
+  ],
+  "recipes": [
+    {
+      "name": "\"Chicken\" korma med chick free",
+      "emoji": "🍛",
+      "tag": "vegetar",
+      "meta": "2 pers. · 35 min",
+      "ingredients": [
+        "Ris – 150 g",
+        "Blomkålsris el. et blomkålshoved blendet til \"ris\" – 175 g",
+        "Chick free el. lign. (marinade) – 0.5 pk",
+        "Olie (marinade) – 1 spsk",
+        "Garam masala krydderiblanding (marinade) – 0.5 spsk",
+        "Karry (marinade) – 0.5 tsk",
+        "Citronsaft (marinade) – 1.5 spsk",
+        "Hvidløg (marinade) – 2 fed",
+        "Cheasy fraiche 5% (marinade) – 0.5 dl",
+        "Løg (korma saucen) – 1 stk",
+        "Kokosmælk (korma saucen) – 200 ml",
+        "Tomatpuré (korma saucen) – 70 g",
+        "Olie til stegning",
+        "Salt og peber"
+      ],
+      "steps": [
+        "Bland ingredienserne til marinaden i en skål. Læg chick free stykkerne i marinaden og lad det trække 30 minutter i køleskabet.",
+        "Opvarm olie i en gryde. Svits løgtern til de er klare.",
+        "Skru lidt ned for varmen og tilsæt chick free samt marinade, og steg det kort under omrøring.",
+        "Tilsæt kokosmælk og tomatpuré, og lad retten småsimre imens du koger ris.",
+        "Kog risen som anvist på posen, og damp blomkålsrisen (kan laves i mikroovnen i en plastikbøtte med husholdningsfilm over). Bland ris og blomkålsris sammen inden servering.",
+        "Smag kormaen til med salt og peber, og servér sammen med risen."
+      ]
+    },
+    {
+      "name": "Tomatrisotto med sorte bønner",
+      "emoji": "🍚",
+      "tag": "vegetar",
+      "meta": "2 pers. · 25 min",
+      "ingredients": [
+        "Løg – 1 stk",
+        "Hvidløg – 1 fed",
+        "Olie – 0.5 spsk",
+        "Ris – 150 g",
+        "Hakkede tomater – 1 ds",
+        "Vand – 1 dl",
+        "Bouillonterning – 0.5 stk",
+        "Oregano – 0.5 spsk",
+        "Paprika – 0.5 spsk",
+        "Timian – 0.5 tsk",
+        "Salt – 0.5 tsk",
+        "Sorte bønner – 1 ds",
+        "Revet parmesan – 25 g",
+        "Peber"
+      ],
+      "steps": [
+        "Hak løg og hvidløg fint.",
+        "Opvarm lidt olie i en stor gryde. Svits løg og hvidløg til løgene er klare.",
+        "Tilsæt ris, hakkede tomater, vand, bouillonterning og krydderier.",
+        "Lad retten simre ved lav varme indtil væden er kogt ind. Er risene ikke helt møre, tilsæt da lidt mere vand og lad det koge ind.",
+        "Når risene er møre, tilsættes de sorte bønner (drænet og skyllet) samt revet parmesan.",
+        "Smag retten til med salt og peber og evt. flere krydderier efter smag."
+      ]
+    },
+    {
+      "name": "Toscansk pastaret med hvide bønner, spinat og tomater",
+      "emoji": "🍝",
+      "tag": "pasta",
+      "meta": "2 pers. · 30 min (+ evt. udblødningstid til tørrede bønner)",
+      "ingredients": [
+        "Fuldkornsspaghetti – 150 g",
+        "Hvidløg – 1.5 fed",
+        "Hvide bønner, tørrede – 75 g",
+        "Frisk spinat – 62.5 g",
+        "Cherrytomater – 125 g",
+        "Olie til stegning – 0.5 spsk",
+        "Basilikum – 0.5 spsk",
+        "Salt og peber"
+      ],
+      "steps": [
+        "Kog spaghettien som anvist på posen.",
+        "Bruges der tørrede hvide bønner, skal de stå i blød i minimum 12 timer og derefter koges i 1 time inden brug. Bruger du dåsebønner skal de bare drænes og skylles.",
+        "Imens spaghettien koger opvarmes lidt olie på en pande. Svits først hvidløget 1-2 minutter. Tilsæt herefter cherrytomater og hvide bønner – lad det stege ved middelvarme til bønnerne er let gyldne og tomaterne er faldet sammen.",
+        "Tryk tomaterne ud, så saften kommer ud i retten. Tilsæt den grundigt skyllede spinat samt basilikum, og lad det hele simre til spinaten er faldet sammen.",
+        "Tilsæt spaghettien og evt. 2 spsk pastavand til grøntsagerne, og rør det hele sammen.",
+        "Servér med det samme, evt. med et drys revet parmesan."
+      ]
+    }
+  ]
+}
